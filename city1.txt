@@ -1,0 +1,12 @@
+Riyadh_Alkabra,Alkhabra,7
+Riyadh_Alkabra,Alrass,20
+Alkhabra,Badaiya,10
+Alkhabra,Bukairiah,9
+Bukairiah,Mulida,18
+Mulida,Buriydah,16
+Badaiya,Alrass,15
+Badaiya,Onaizah,25
+Onaizah,Buriydah,32
+Alrass,Alqurain,21
+Alqurain,Dolaimiah,10
+Dolaimiah,Buriydah,85
