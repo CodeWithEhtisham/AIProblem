@@ -49,10 +49,9 @@ def DepthFirstSearch(graph, src, dst):
         for temp in graph[node].keys():
             if temp == dst:
                 return path + [temp], cost + graph[node][temp]
-            else:
-                if temp not in visited:
-                    visited.add(temp)
-                    stack.append((temp, path + [temp], cost + graph[node][temp]))
+            if temp not in visited:
+                visited.add(temp)
+                stack.append((temp, path + [temp], cost + graph[node][temp]))
 
 
 # # Breadth First Search(BFS) algorithm.
@@ -69,10 +68,9 @@ def BreadthFirstSearch(graph, src, dst):
         for temp in graph[node].keys():
             if temp == dst:
                 return path + [temp], cost + graph[node][temp]
-            else:
-                if temp not in visited:
-                    visited.add(temp)
-                    q.append((temp, path + [temp], cost + graph[node][temp]))
+            if temp not in visited:
+                visited.add(temp)
+                q.append((temp, path + [temp], cost + graph[node][temp]))
 
 
 # # Iterative deepening search algorithm.
@@ -95,11 +93,10 @@ def IterativeDeepening(graph, src, dst):
                 for temp in graph[node].keys():
                     if temp == dst:
                         return path + [temp], cost + graph[node][temp]
-                    else:
-                        if temp not in visited:
-                            visited.add(temp)
-                            count += 1
-                            stack.append((temp, path + [temp], cost + graph[node][temp]))
+                    if temp not in visited:
+                        visited.add(temp)
+                        count += 1
+                        stack.append((temp, path + [temp], cost + graph[node][temp]))
             else:
                 q = stack
                 visited_bfs = {src}
@@ -108,10 +105,9 @@ def IterativeDeepening(graph, src, dst):
                     for temp in graph[node].keys():
                         if temp == dst:
                             return path + [temp], cost + graph[node][temp]
-                        else:
-                            if temp not in visited_bfs:
-                                visited_bfs.add(temp)
-                                q.append((temp, path + [temp], cost + graph[node][temp]))
+                        if temp not in visited_bfs:
+                            visited_bfs.add(temp)
+                            q.append((temp, path + [temp], cost + graph[node][temp]))
                 break
 
 
@@ -133,10 +129,9 @@ def DepthLimitedSearch(graph, src, dst,maxlenght):
             if lenght==maxlenght: break
             if temp == dst:
                 return path + [temp], cost + graph[node][temp]
-            else:
-                if temp not in visited:
-                    visited.add(temp)
-                    stack.append((temp, path + [temp], cost + graph[node][temp]))
+            if temp not in visited:
+                visited.add(temp)
+                stack.append((temp, path + [temp], cost + graph[node][temp]))
 
 
 # In[88]:
@@ -183,7 +178,7 @@ def GreedySearch(GRAPH,source, destination):
         for next_node in GRAPH[vertex].keys():
             current_cost = cost + GRAPH[vertex][next_node]
             heuristic = current_cost + straight_line[next_node]
-            if not next_node in visited or visited[next_node] >= heuristic:
+            if next_node not in visited or visited[next_node] >= heuristic:
                 visited[next_node] = heuristic
                 priority_queue.put((heuristic, current_cost, next_node, path + [next_node]))
 
